@@ -18,12 +18,7 @@
 
 ## 📧 Contact
 
-如有问题，请联系：[your.email@domain.com](mailto:your.email@domain.com)
+如有问题，请联系：[your.email@domain.com](mailto:10431240210@stu.qlu.edu.cn)
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 ⭐ **如果这个项目对您有帮助，请给个星标！**

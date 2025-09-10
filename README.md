@@ -179,60 +179,8 @@ MDSF-Det/
     └── detect/               # Detection/test outputs
 ```
 
-## 🔧 Troubleshooting
-
-### Common Issues
-
-1. **CUDA out of memory**
-   ```bash
-   # Reduce batch size
-   python train_MDSF-Det.py --batch-size 16
-   python val_MDSF-Det.py --batch-size 16
-   ```
-
-2. **Port already in use**
-   ```bash
-   # Use different port
-   python -m torch.distributed.launch --master_port=29501 --nproc_per_node=8 train_MDSF-Det.py
-   ```
-
-3. **Model not found**
-   ```bash
-   # Check model path
-   ls runs/train/exp/weights/
-   python val_MDSF-Det.py --weights runs/train/exp/weights/last.pt
-   ```
-
-## 🎯 Quick Start
-
-### Complete Workflow
-
-```bash
-# Setup
-git clone https://github.com/241316435/MDSF-Det.git
-cd MDSF-Det
-conda create -n c python=3.8
-conda activate c
-pip install torch torchvision numpy matplotlib polars pyyaml pillow psutil requests scipy seaborn ultralytics
-
-# Training
-python -m torch.distributed.launch --nproc_per_node=8 train_MDSF-Det.py
-
-# Validation
-python val_MDSF-Det.py --weights runs/train/exp/weights/best.pt --data data/config.yaml
-
-# Testing
-python test_MDSF-Det.py --weights runs/train/exp/weights/best.pt --source data/test/images
 ```
 
-## 📊 Performance
-
-| Dataset | mAP@0.5 | mAP@0.5:0.95 | Parameters | FLOPs |
-|---------|---------|--------------|------------|--------|
-| M3FD    | -       | -            | -          | -      |
-| LLVIP   | -       | -            | -          | -      |
-
-*Performance metrics will be updated upon code release.*
 
 ## 📧 Contact
 
@@ -242,11 +190,4 @@ python test_MDSF-Det.py --weights runs/train/exp/weights/best.pt --source data/t
 
 ## 📝 Citation
 
-```bibtex
-@article{mdsf-det2024,
-  title={MDSF-Det: Modal Specificity Decoupling and Synergistic Dynamic Fusion for Infrared-Visible Object Detection},
-  author={Your Name},
-  journal={Conference/Journal Name},
-  year={2024}
-}
-```
+

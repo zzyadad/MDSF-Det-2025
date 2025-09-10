@@ -3,7 +3,6 @@
 
 - ✨ Modal Specificity Decoupling Backbone (MSDB)
 - 🔥 Modality-aware Synergistic Dynamic Fusion (MSDF)
-- 📊 State-of-the-art performance on M3FD and LLVIP datasets
 - 🚀 End-to-end training pipeline
 
 ## 🛠️ Environment Setup

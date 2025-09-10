@@ -6,6 +6,7 @@
 > 
 > This repository will be updated with the complete implementation upon paper acceptance.
 
+![Uploading VIS.jpg…]()
 
 ## 🎯 Key Features
 

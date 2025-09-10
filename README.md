@@ -6,7 +6,8 @@
 > 
 > This repository will be updated with the complete implementation upon paper acceptance.
 
-![Uploading VIS.jpg…]()
+
+![VIS](https://github.com/user-attachments/assets/95a667b6-cd26-4977-9e80-6b13d92e7880)
 
 ## 🎯 Key Features
 

@@ -1,193 +1,40 @@
 # MDSF-Det: Modal Specificity Decoupling and Synergistic Dynamic Fusion for Infrared-Visible Object Detection
-## 🎯 Key Features
 
-- ✨ Modal Specificity Decoupling Backbone (MSDB)
-- 🔥 Modality-aware Synergistic Dynamic Fusion (MSDF)
-- 🚀 End-to-end training pipeline
+## 🎯 核心创新
 
-## 🛠️ Environment Setup
+- ✨ **Modal Specificity Decoupling Backbone (MSDB)**: 模态特异性解耦骨干网络
+- 🔥 **Modality-aware Synergistic Dynamic Fusion (MSDF)**: 模态感知协同动态融合
+- 🚀 **端到端训练**: 完整的红外-可见光目标检测框架
 
-### Prerequisites
-- Python 3.8+
-- CUDA 11.0+
-- 8 GPUs for distributed training (recommended)
+## 📖 项目简介
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/241316435/MDSF-Det.git
-   cd MDSF-Det
-   ```
-
-2. **Create and activate conda environment**
-   ```bash
-   conda create -n c python=3.8
-   conda activate c
-   ```
-
-3. **Install dependencies**
-   ```bash
-   # Install core dependencies first
-   pip install torch torchvision numpy matplotlib polars pyyaml pillow psutil requests scipy seaborn 
-   
-   # Install ultralytics
-   pip install ultralytics 
-   
-   # Or use requirements.txt
-   pip install -r requirements.txt
-   ```
-
-4. **Verify installation**
-   ```bash
-   python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
-   ```
-
-## 🚀 Training
-
-### Distributed Training (8 GPUs)
-
-1. **Activate environment and navigate to project**
-   ```bash
-   conda activate c
-   cd MDSF-Det
-   ```
-
-2. **Run distributed training**
-   ```bash
-   # Single command for 8-GPU training
-   python -m torch.distributed.launch --nproc_per_node=8 train_MDSF-Det.py
-   
-   # Alternative using torchrun (PyTorch 1.9+)
-   torchrun --nproc_per_node=8 train_MDSF-Det.py
-   ```
-
-### Training Configuration
-
-```bash
-# Example training command with custom parameters
-python -m torch.distributed.launch \
-    --nproc_per_node=8 \
-    --master_port=29500 \
-    train_MDSF-Det.py \
-    --batch-size 32 \
-    --epochs 300 \
-    --data data/config.yaml \
-    --weights weights/yolov8n.pt
-```
-
-### Single GPU Training
-```bash
-python train_MDSF-Det.py --device 0
-```
-
-## 🔍 Validation
-
-### Model Validation
-
-1. **Validate trained model**
-   ```bash
-   conda activate c
-   cd MDSF-Det
-   python val_MDSF-Det.py --weights runs/train/exp/weights/best.pt --data data/config.yaml
-   ```
-
-2. **Validation with custom parameters**
-   ```bash
-   python val_MDSF-Det.py \
-       --weights path/to/model.pt \
-       --data data/config.yaml \
-       --batch-size 32 \
-       --imgsz 640 \
-       --device 0
-   ```
-
-3. **Multi-GPU validation**
-   ```bash
-   python -m torch.distributed.launch --nproc_per_node=8 val_MDSF-Det.py \
-       --weights runs/train/exp/weights/best.pt \
-       --data data/config.yaml
-   ```
-
-## 🧪 Testing & Inference
-
-### Model Testing
-
-1. **Test on specific dataset**
-   ```bash
-   conda activate c
-   cd MDSF-Det
-   python test_MDSF-Det.py --weights runs/train/exp/weights/best.pt --source data/test/images
-   ```
-
-2. **Test with custom parameters**
-   ```bash
-   python test_MDSF-Det.py \
-       --weights path/to/model.pt \
-       --source data/test/images \
-       --conf-thres 0.25 \
-       --iou-thres 0.45 \
-       --device 0 \
-       --save-txt \
-       --save-conf
-   ```
-
-3. **Batch testing**
-   ```bash
-   python test_MDSF-Det.py \
-       --weights runs/train/exp/weights/best.pt \
-       --source data/test \
-       --batch-size 16 \
-       --imgsz 640
-   ```
-
-### Inference Examples
-
-```bash
-# Test on single image
-python test_MDSF-Det.py --weights best.pt --source image.jpg
-
-# Test on video
-python test_MDSF-Det.py --weights best.pt --source video.mp4
-
-# Test on webcam
-python test_MDSF-Det.py --weights best.pt --source 0
-
-# Test on image folder
-python test_MDSF-Det.py --weights best.pt --source path/to/images/
-```
-
-## 📁 Project Structure
-
-```
-MDSF-Det/
-├── train_MDSF-Det.py          # Main training script
-├── val_MDSF-Det.py            # Validation script
-├── test_MDSF-Det.py           # Testing/Inference script
-├── requirements.txt           # Python dependencies
-├── data/                      # Dataset configurations
-│   ├── config.yaml           # Dataset config file
-│   ├── train/                # Training data
-│   ├── val/                  # Validation data
-│   └── test/                 # Test data
-├── models/                    # Model architectures
-├── utils/                     # Utility functions
-├── weights/                   # Pre-trained weights
-└── runs/                      # Training/validation/test results
-    ├── train/                # Training outputs
-    ├── val/                  # Validation outputs
-    └── detect/               # Detection/test outputs
-```
-
-```
+本项目提出了一种新颖的红外-可见光目标检测方法，通过模态特异性解耦和协同动态融合技术，有效提升了多模态目标检测的性能。
 
 
-## 📧 Contact
 
-如有问题，请联系：[10431240210@stu.qlu.edu.cn](mailto:10431240210@stu.qlu.edu.cn)
+## 📅 代码发布计划
 
-⭐ **如果这个项目对您有帮助，请给个星标！**
+> **重要说明**: 本项目的完整代码将在论文被期刊/会议正式录用后公开发布。
 
-## 📝 Citation
+**预计发布内容**:
+- 完整的训练代码
+- 模型推理代码
+- 预训练模型权重
+- 详细的使用说明
+- 实验复现指南
 
 
+## 📧 联系方式
+
+如有学术交流或合作意向，请联系：
+- 📧 Email: [10431240210@stu.qlu.edu.cn](mailto:10431240210@stu.qlu.edu.cn)
+
+## 📄 许可证
+
+本项目遵循 [MIT License](LICENSE)
+
+---
+
+⭐ **如果您对本项目感兴趣，请点击Star关注项目进展！**
+
+**💡 提示**: 请持续关注本仓库，我们会在论文录用后第一时间发布完整代码。
